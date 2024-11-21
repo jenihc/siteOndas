@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Ondas Eletromagnéticas </title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(to bottom, #c1ecf2, #76cbff);   
+        }
+        section {
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            margin: 30px 0; 
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            display: flex; /* Flexbox para alinhar texto e imagem */
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s ease-in-out;
+        }
+        section:hover {
+            transform: scale(1.05); 
+        }
+        h2 {
+            color: #5345b0;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .ionizante {
+            color: red;
+        }
+
+        .nao-ionizante {
+            color: green;
+        }
+        footer {
+            padding: 20px;
+            background-color: #f1f1f1;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            margin-top: 10px;
+        }
+        header {
+            background-color: #6a5acd;
+            color: white;
+            padding: 6px 20px;
+            text-align: left;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        aside img {
+            width: 150px;
+            height: auto;
+            margin-left: 20px;
+        }
+        h1 {
+        color: #5345b0;
+        text-align: left;
+        margin-top: 120px; 
+        margin-bottom: 40px; 
+        padding: 10px;
+        }
+        #ondas-baixas {
+            padding-top: 40px; 
+            margin-top: 1px; 
+        }   
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav style="position: relative; left: 30px; top: 20px">
+            <a href="./index.html">Voltar</a>
+        </nav>
+    </header>
+    <h1 style="text-align:left; color: #5345b0;">Tipos de Ondas Eletromagnéticas :</h1>
+
+    <section id="ondas-baixas">
+        <div>
+            <h2>1. Ondas Baixas</h2>
+            <p>As ondas de rádio têm as frequências mais baixas do espectro eletromagnético e são amplamente usadas para transmissão de rádio, televisão e outros sinais de comunicação.
+               A ressonância magnética é um exame de imagem que usa campo magnético para criar imagens de alta definição dos órgãos internos.
+            </p>
+            <p class="nao-ionizante">Ionizante: Não</p>
+            <p><strong>Efeitos no corpo humano:</strong> As ondas de rádio, sendo de baixa energia, não causam danos diretos ao corpo. No entanto, alguns estudos têm investigado potenciais efeitos a longo prazo da exposição contínua a campos de rádio, como os emitidos por celulares e torres de comunicação, mas ainda não há consenso científico sobre os efeitos adversos.</p>
+        </div>
+        <aside>
+            <img src="./images/tv.png" alt="Ondas de Rádio">
+        </aside>
+    </section>
+
+    <section id="onda-media">
+        <div>
+            <h2>2. Micro-ondas</h2>
+            <p>As micro-ondas têm uma frequência maior que as ondas de rádio e são usadas em tecnologias como comunicação via satélite, transmissão de dados e fornos de micro-ondas, onde aquecem os alimentos fazendo com que as moléculas de água vibrem.
+                "também são muito utilizadas nas telecomunicações. Os roteadores de internet sem fio, popularmente conhecidos como Wi-fi, utilizam micro-ondas de frequências que variam entre 2,4 GHz e 5,8 GHz</p>
+            <p class="nao-ionizante">Ionizante: Não</p>
+            <p><strong>Efeitos no corpo humano:</strong> Embora não sejam ionizantes, as micro-ondas podem aquecer tecidos corporais. A exposição a grandes quantidades pode causar queimaduras internas, mas os aparelhos que utilizam micro-ondas, como fornos, são projetados para limitar qualquer risco de exposição.</p>
+        </div>
+        <aside>
+            <img src="./images/mic.png" alt="Micro-ondas">
+        </aside>
+    </section>
+
+    <section id="onda-alta">
+        <div>
+            <h2>3. Infravermelho</h2>
+            <p>A radiação infravermelha tem uma frequência menor que a da luz visível, pouco maior que as micro-ondas, é emitido por qualquer objeto que emite calor. Ele é usado em dispositivos como câmeras térmicas, controles remotos e aquecedores, sendo também essencial para algumas funções biológicas.</p>
+            <p class="nao-ionizante">Ionizante: Não</p>
+            <p><strong>Efeitos no corpo humano:</strong> O infravermelho é geralmente inofensivo, pois é amplamente absorvido pela pele como calor. No entanto, a exposição prolongada a fontes intensas de infravermelho, como lâmpadas de aquecimento, pode causar queimaduras térmicas.</p>
+        </div>
+        <aside>
+            <img src="./images/infra.jpg" style="border-radius: 5px;" alt="Infravermelho">
+        </aside>
+    </section>
+
+    <section id="luz-visivel">
+        <div>
+            <h2>4. Luz Visível</h2>
+            <p>A luz visível representa o espectro que nossos olhos podem ver, incluindo todas as cores, do vermelho ao violeta. Ela é vital para a visão e influencia nossos ritmos biológicos, como o ciclo sono-vigília.</p>
+            <p class="nao-ionizante">Ionizante: Não</p>
+            <p><strong>Efeitos no corpo humano:</strong> A luz visível não causa danos celulares significativos, pois não é ionizante. No entanto, a exposição prolongada a luzes intensas pode causar desconforto nos olhos ou, em casos extremos, danos à visão, como no caso de olhar diretamente para o Sol.</p>
+        </div>
+        <aside>
+            <img src="./images/sol.jpg" style="border-radius: 5px;" alt="Luz Visível">
+        </aside>
+    </section>
+
+    <section id="ultravioleta">
+        <div>
+            <h2>5. Ultravioleta</h2>
+            <p>A radiação ultravioleta (UV) tem uma frequência maior que a luz visível, mas menor que os raios X."Essa frequência de onda eletromagnética é bastante utilizada por peritos criminais para a detecção de materiais biológicos, como sangue e saliva; sua capacidade de ionização também permite usá-la para a esterilização de utensílios cirúrgicos, seringas, recipientes etc.;".</p>
+            <p class="ionizante">Ionizante: Sim (apenas as faixas mais energéticas, como o UV-C)</p>
+            <p><strong>Efeitos no corpo humano:</strong> A exposição prolongada à radiação UV pode causar queimaduras solares, envelhecimento precoce e, em casos extremos, câncer de pele. Existem diferentes tipos de radiação UV: UV-A, UV-B e UV-C, sendo a UV-C a mais perigosa, porém é bloqueada pela camada de ozônio.</p>
+        </div>
+        <aside>
+            <img src="./images/UV.png" alt="Ultravioleta">
+        </aside>
+    </section>
+
+    <section id="raios-x">
+        <div>
+            <h2>6. Raios X</h2>
+            <p>Os raios X são ondas eletromagnéticas com uma frequência menor que os raios gama, mas ainda muito energéticas.</p>
+            <p>São amplamente usados na medicina para obter imagens do interior do corpo, especialmente em exames de Tomografia e Radiografia para examinar ossos e estruturas internas do corpo humano.</p>
+            <p class="ionizante">Ionizante: Sim</p>
+            <p><strong>Efeitos no corpo humano:</strong> Por serem ionizantes, os raios X podem causar danos ao DNA e aumentar o risco de câncer se a exposição for excessiva. No entanto, os exames de raios X são feitos em doses controladas para minimizar riscos.</p>
+        </div>
+        <aside>
+            <img src="./images/RAX.png" alt="Raios X" style="border-radius: 15px;">
+        </aside>
+    </section>
+
+    <section id="raios-gama">
+        <div>
+            <h2>7. Raios Gama</h2>
+            <p>Os raios gama são ondas eletromagnéticas de altíssima frequência, com comprimentos de onda extremamente curtos, e são as mais energéticas do espectro eletromagnético.</p>
+            <p>São emitidos por núcleos atômicos instáveis durante processos como decaimento radioativo e reações nucleares.
+                Radioterapia e Quimioterapia sao tratamentos que utilizam de radiação gama para combater o cancer.
+            </p>
+            <p class="ionizante">Ionizante: Sim</p>
+            <p><strong>Efeitos no corpo humano:</strong> Devido à sua alta energia, os raios gama são extremamente penetrantes e podem atravessar tecidos vivos. Eles podem danificar células ao quebrar moléculas de DNA, o que pode causar mutações, câncer ou morte celular.</p>
+        </div>
+        <aside>
+            <img src="./images/GAMA.png" alt="Raios Gama" style="border-radius: 5px;width: 200px;">
+        </aside>
+    </section>
+
+    <footer>
+    </footer>
+
+</body>
+</html>

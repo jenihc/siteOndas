@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onda Eletromagnética Aprimorada</title>
+    <link rel="stylesheet" href="./css/Onda.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #6a5acd;
+            color: white;
+            padding: 10px 20px;
+            text-align: left;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            
+        }
+
+        .content {
+            padding-top: 60px; 
+            display: block;
+        }
+
+        .sobre {
+            display: inline-block;
+            margin-left: 30px;
+            
+            display: inline-block;
+            margin-left: 150px;
+        }
+                
+        
+
+        .sobre p {
+            cursor: pointer;
+            font-size: 20px;
+            margin: 5px 0;
+        }
+
+        .info-box {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            display: none; 
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav style="position: relative;left: 30px;top:20px">
+        <a href="./info.html">Tipos de Ondas</a>
+    </nav>
+</header>
+
+<div class="content" id="waveSection">
+    <svg width="800" height="400"> 
+        <path id="wavePath" d="M 100 200 L 700 200" /> 
+        <circle id="controlPointStart" cx="100" cy="200" r="10" />
+        <circle id="controlPointEnd" cx="700" cy="200" r="10" /> 
+        <text id="frequencyLevel" x="400" y="50" text-anchor="middle">Níveis de frequência:</text> 
+    </svg>
+</div>
+<div class="sobre">
+    <p onclick="showInfo(1)">1</p>
+    <p onclick="showInfo(2)">2</p>
+    <p onclick="showInfo(3)">3</p>
+    <p onclick="showInfo(4)">4</p>
+    <p onclick="showInfo(5)">5</p>
+    <p onclick="showInfo(6)">6</p>
+    <p onclick="showInfo(7)">7</p>
+</div>
+
+<div id="info" class="info-box">
+
+<script>
+    const controlPointStart = document.getElementById('controlPointStart');
+    const controlPointEnd = document.getElementById('controlPointEnd');
+    const wavePath = document.getElementById('wavePath');
+    const frequencyLevel = document.getElementById('frequencyLevel'); 
+
+    function calculateFrequency(startX, endX) {
+        const distance = Math.abs(endX - startX);
+        if (distance > 600) { 
+            return { frequency: 0, waveHeight: 0 };
+        }
+        if (distance <= 85) {
+            return { frequency: 12, waveHeight: 100 };
+        } else if (distance <= 170) {
+            return { frequency: 10, waveHeight: 80 }; 
+        } else if (distance <= 255) {
+            return { frequency: 8, waveHeight: 60 };
+        } else if (distance <= 340) {
+            return { frequency: 6, waveHeight: 40 }; 
+        } else if (distance <= 425) {
+            return { frequency: 4, waveHeight: 30 };
+        } else if (distance <= 500) {
+            return { frequency: 3, waveHeight: 40 };
+        } else {
+            return { frequency: 2, waveHeight: 30 }; 
+        }
+    }
+
+    function updateWave() {
+        const startX = parseFloat(controlPointStart.getAttribute('cx'));
+        const endX = parseFloat(controlPointEnd.getAttribute('cx'));
+
+        const { frequency, waveHeight } = calculateFrequency(startX, endX);
+        
+        let levelText;
+        switch (frequency) {
+            case 12:
+                levelText = "Raios Gama : 7"; // Nível 7
+                break;
+            case 10:
+                levelText = "Raio - X : 6"; // Nível 6
+                break;
+            case 8:
+                levelText = "Ultravioleta : 5"; // Nível 5
+                break;
+            case 6:
+                levelText = "Infravermelho : 4"; // Nível 4
+                break;
+            case 4:
+                levelText = "Microondas : 3"; // Nível 3
+                break;
+            case 3:
+                levelText = "Radio : 2"; // Nível 2
+                break;
+            case 2:
+                levelText = "Ondas Baixas : 1"; // Nível 1
+                break;
+            default:
+                levelText = "Ondas eletromagneticas"; // Nível 0
+                break;
+        }
+        frequencyLevel.textContent = levelText; 
+
+        const midY = 200;
+        if (frequency === 0) {
+            wavePath.setAttribute('d', `M ${startX} ${midY} L ${endX} ${midY}`);
+        } else {
+            let wavePathData = `M ${startX} ${midY} `;
+            const waveWidth = (endX - startX) / frequency;
+
+            for (let i = 1; i <= frequency; i++) {
+                const controlX = startX + waveWidth * i - waveWidth / 2;
+                const controlY = i % 2 === 0 ? midY + waveHeight : midY - waveHeight; 
+                const endSegmentX = startX + waveWidth * i;
+                wavePathData += `Q ${controlX} ${controlY}, ${endSegmentX} ${midY} `;
+            }
+
+            wavePath.setAttribute('d', wavePathData);
+        }
+    }
+
+    function dragPoint(point) {
+        let isDragging = false;
+
+        point.addEventListener('mousedown', () => {
+            isDragging = true;
+            document.body.style.userSelect = 'none';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                const svgRect = point.closest('svg').getBoundingClientRect();
+                const x = e.clientX - svgRect.left;
+
+                const minX = 0 + point.r.baseVal.value;
+                const maxX = svgRect.width - point.r.baseVal.value;
+
+                point.setAttribute('cx', Math.max(minX, Math.min(maxX, x)));
+                updateWave();
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            document.body.style.userSelect = '';
+        });
+    }
+
+    dragPoint(controlPointStart);
+    dragPoint(controlPointEnd);
+
+    function showInfo(number) {
+        const infoBox = document.getElementById('info');
+        let infoText = '';
+
+        switch (number) {
+            case 1:
+                infoText = "Ondas baixas: Comprimentos de onda longos, como ondas de rádio.";
+                break;
+            case 2:
+                infoText = "Onda média: Frequências intermediárias micro-ondas.";
+                break;
+            case 3:
+                infoText = "Onda alta: Comprimentos de onda curtos, luz infravermelha.";
+                break;
+            case 4:
+                infoText = "Onda de luz visível: A parte do espectro que podemos ver.";
+                break;
+            case 5:
+                infoText = "Onda ultravioleta: Luz com frequência maior que a luz visível.";
+                break;
+                case 6:
+                infoText = "Raio-X: Usado em exames médicos para visualizar estruturas internas do corpo.";
+                break;
+            case 7:
+                infoText = "Raios Gama: Ondas de alta energia, normalmente produzidas por materiais radioativos.";
+                break;
+            default:
+                infoText = "Informação não disponível.";
+             
+            
+                break;
+        }
+
+        infoBox.textContent = infoText;
+        infoBox.style.display = 'block';
+    }
+
+    document.addEventListener('click', (event) => {
+        const infoBox = document.getElementById('info');
+        const sobreDiv = document.querySelector('.sobre');
+        if (!sobreDiv.contains(event.target)) {
+            infoBox.style.display = 'none'; 
+        }
+    });
+
+</script>
+</div>
+
+<footer>
+</footer>
+</body>
+</html>

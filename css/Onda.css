@@ -1,0 +1,56 @@
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom, #76cbff, #c1ecf2); /* Gradiente de fundo */
+}
+svg {
+    border: none;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)); /* Sombra suave */
+    
+}
+path {
+    stroke: #007BFF; /* Cor azul suave */
+    stroke-width: 4;
+    fill: none;
+}
+circle {
+    fill: #FF4500; /* Cor das bolinhas */
+}
+Text {
+    font-size:30px;
+    fill: #000; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+.sobre {
+    display: inline-block;
+ 
+}
+
+.sobre p {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.info-box {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    display: flex; /* Oculta inicialmente */
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: rgba(249, 249, 249, 0.356); /* Cor de fundo com transparência */
+    border-radius: 5px;
+    margin: 0px 30px;
+}
+
+section{
+    width: 90%;
+    height: auto;
+}
